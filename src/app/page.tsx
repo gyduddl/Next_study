@@ -1,13 +1,15 @@
-// import Image from "next/image";
-// import styles from "./page.module.css";
 import Link from "next/link"
+import style from './style.module.css'
+import {getCurrentWeather} from '@/utils/getCurrentWeather'
 
-export default function Home() {
+export default async function Home() {
+  const res = await getCurrentWeather('seoul')
   return  <>
   <h1>main</h1>
-  <ul>
+  <ul className={style.list}>
     <li>
       <Link href="/seoul">서울</Link>
+      <span>{res.current.condition.text}</span>
       </li>
     <li>
     <Link href="/newyork">뉴욕</Link>
