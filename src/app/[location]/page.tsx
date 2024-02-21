@@ -1,17 +1,29 @@
-"use client"
+// "use client"
 
 import { getForecast } from "@/utils/getForecast";
 import Button from "./Button";
 
 
+
 type Props ={
     params:{
         location:string
+    },
+    searchParams:{
+        name:string
     }
 }
 
-export default async function detail({ params }:Props){
-     const name = params.location === "seoul"? "서울": "";
+// 동적으로 메타데이터 주기
+export function generateMetadata({ searchParams }:Props){
+    return{
+        title:`날씨 앱 - ${searchParams.name}`,
+        description: `${searchParams.name} 날씨를 알려드립니다.`,
+    }
+}
+
+export default async function detail({ params,searchParams }:Props){
+     const name = searchParams.name;
     const res = await getForecast(params.location);
 
     return(
