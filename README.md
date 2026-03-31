@@ -13,7 +13,7 @@
 
 ### 1. 📍 API 조합을 통한 위치 정밀화 (Reverse Geocoding)
 * 해외 기상 API(`WeatherAPI`)의 한국 지명 데이터 부정확성(예: 'Monnae' 등 생소한 명칭 반환) 문제를 발견.
-* 이를 해결하기 위해 `Kakao Local API`를 결합하여 **"수원시 영통구"**와 같은 정확한 한국 행정 구역 명칭을 제공합니다.
+* 이를 해결하기 위해 `Kakao Local API`를 결합하여 **"수원시"**와 같은 정확한 한국 행정 구역 명칭을 제공합니다.
 
 ### 2. 📊 데이터 시각화 (Charts)
 * `Chart.js`를 활용하여 24시간 기온 추이를 직관적인 라인 차트로 구현했습니다.
@@ -41,8 +41,8 @@
 
 ### **[Issue] 해외 API의 지명 데이터 불일치 및 보안 문제**
 * **현상:** 브라우저 좌표를 Weather API에 직접 전달 시, 한국 사용자에게 어색한 영문 지명이 노출됨. 또한 클라이언트 코드에 API 키가 노출될 위험이 있음.
-* **해결:** 1. Next.js의 **Route Handler(`app/api/location/route.ts`)**를 구축하여 API 키를 서버 환경 변수(`.env`)로 격리.
-  2. 카카오 로컬 API를 서버에서 호출하여 좌표를 한글 주소로 변환하는 **Reverse Geocoding** 로직 구현.
+* **해결:** 1. Next.js의 **Route Handler(`app/api/location/route.ts`)**를 구축하여 API 키를 서버 환경 변수(`.env`)로 격리./n
+  2. 카카오 로컬 API를 서버에서 호출하여 좌표를 한글 주소로 변환하는 **Reverse Geocoding** 로직 구현./n
   3. 두 API의 응답을 조합하여 신뢰도 높은 위치 정보와 기상 데이터를 동시에 제공함.
 
 ---
