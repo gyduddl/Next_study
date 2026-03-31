@@ -11,7 +11,6 @@ export default function LocalWeather() {
         if ('geolocation' in navigator) {
             navigator.geolocation.getCurrentPosition(async (pos) => {
                 const { latitude, longitude } = pos.coords;
-                console.log('위도:', latitude, '경도:', longitude);
 
                 try {
                     // 1. 카카오 API 지역이름
