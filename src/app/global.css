@@ -246,3 +246,7 @@ strong {
 .action-footer {
     margin-bottom: 10px;
 }
+
+.time-display.card {
+    margin-top: 10px;
+}

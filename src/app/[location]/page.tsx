@@ -26,7 +26,7 @@ export default async function Detail({ params, searchParams }: Props) {
     return (
         <main className='container'>
             <header className='header-section'>
-                <h1 className='main-title'>{name}의 3일 예보</h1>
+                <h1 className='main-title'>{name}의 삼일 예보</h1>
                 <p className='subtitle'>최신 기상 데이터를 기반으로 한 상세 예보입니다.</p>
             </header>
 

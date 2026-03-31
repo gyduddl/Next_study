@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getCurrentWeather } from '@/utils/getCurrentWeather';
 import { getTime } from '@/utils/getTime';
 import RevalidateButton from './component/RevalidateButton';
+import LocalWeather from './component/LocalWeather';
 
 export default async function Home() {
     const res = await getCurrentWeather('seoul');
@@ -19,6 +20,7 @@ export default async function Home() {
         <main className='container'>
             <header className='header-section'>
                 <h1 className='main-title'>Global Weather</h1>
+                <LocalWeather />
                 <div className='time-display card'>
                     <span className='time-label'>현재 현지 시각</span>
                     <h2 className='time-value'>{time.dateTime.split('T')[1].substring(0, 5)}</h2>
