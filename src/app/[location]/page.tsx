@@ -1,5 +1,5 @@
 // "use client"
-
+import Link from 'next/link';
 import { getForecast } from '@/utils/getForecast';
 import Button from './Button';
 
@@ -33,12 +33,14 @@ export default async function Detail({ params, searchParams }: Props) {
             <section className='forecast-grid'>
                 {res.forecast.forecastday.map((day) => (
                     <article key={day.date} className='card forecast-item'>
-                        <span className='date-badge'>{day.date}</span>
-                        <div className='temp-info'>
-                            <span className='temp-value'>{day.day.avgtemp_c}</span>
-                            <span className='temp-unit'>°C</span>
-                        </div>
-                        <p className='status-text'>평균 기온</p>
+                        <Link href={`/forecast/${params.location}?name=${name}`} className='btn-chart'>
+                            <span className='date-badge'>{day.date}</span>
+                            <div className='temp-info'>
+                                <span className='temp-value'>{day.day.avgtemp_c}</span>
+                                <span className='temp-unit'>°C</span>
+                            </div>
+                            <p className='status-text'>평균 기온</p>
+                        </Link>
                     </article>
                 ))}
             </section>
