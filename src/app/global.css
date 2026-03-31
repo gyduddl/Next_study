@@ -13,8 +13,8 @@ button {
     --bg-color: #030712;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
-    --accent-1: #6366f1; /* Indigo */
-    --accent-2: #ec4899; /* Pink */
+    --accent-1: #6366f1;
+    --accent-2: #ec4899;
     --glass: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
 }
@@ -57,6 +57,11 @@ body {
     background: var(--accent-1);
 }
 
+/* 메인 레이아웃 */
+.layout-wrapper {
+    margin: 20px;
+}
+
 /* 메인 타이틀 */
 h1,
 .main-title {
@@ -91,6 +96,7 @@ section > div {
 
 button,
 .btn {
+    font-size: 14px;
     cursor: pointer;
     padding: 12px 28px;
     border-radius: 14px;
