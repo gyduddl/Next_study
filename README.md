@@ -46,13 +46,3 @@
   3. 두 API의 응답을 조합하여 신뢰도 높은 위치 정보와 기상 데이터를 동시에 제공함.
 
 ---
-
-## 📂 Project Structure
-```text
-src/
- ├── app/
- │    ├── api/          # Kakao & Weather API Route Handlers
- │    ├── forecast/     # [location] 기반 다이나믹 라우트 (상세 차트)
- │    └── layout.tsx    # Root Layout & Metadata (Viewport) 설정
- ├── components/        # HourlyChart, WeatherCard 등 공통 컴포넌트
- └── utils/             # Fetching logic 및 데이터 포맷터
