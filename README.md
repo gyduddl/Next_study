@@ -20,4 +20,39 @@
 * 상세 페이지(`Dynamic Routing`)를 통해 더 깊이 있는 기상 데이터를 확인할 수 있습니다.
 
 ### 3. ⚡ Next.js 최적화 아키텍처
-* **App Router:** 최신 Next.js 구조를 채
+* **App Router:** 최신 Next.js 구조를 채택하여 효율적인 라우팅을 구현했습니다.
+* **Server-side API Route:** 카카오 REST API 키 보안을 위해 서버 사이드에서 API를 호출하고 클라이언트에 정제된 데이터만 전달합니다.
+
+---
+
+## 🛠 Tech Stack (기술 스택)
+
+| Category | Tech |
+| :--- | :--- |
+| **Framework** | Next.js 14 (App Router) |
+| **Language** | TypeScript |
+| **State/Data** | React Hooks, Fetch API |
+| **Styling** | CSS Modules, Framer Motion (Transitions) |
+| **Deployment** | Vercel |
+
+---
+
+## 💡 Troubleshooting (문제 해결)
+
+### **[Issue] 해외 API의 지명 데이터 불일치 및 보안 문제**
+* **현상:** 브라우저 좌표를 Weather API에 직접 전달 시, 한국 사용자에게 어색한 영문 지명이 노출됨. 또한 클라이언트 코드에 API 키가 노출될 위험이 있음.
+* **해결:** 1. Next.js의 **Route Handler(`app/api/location/route.ts`)**를 구축하여 API 키를 서버 환경 변수(`.env`)로 격리.
+  2. 카카오 로컬 API를 서버에서 호출하여 좌표를 한글 주소로 변환하는 **Reverse Geocoding** 로직 구현.
+  3. 두 API의 응답을 조합하여 신뢰도 높은 위치 정보와 기상 데이터를 동시에 제공함.
+
+---
+
+## 📂 Project Structure
+```text
+src/
+ ├── app/
+ │    ├── api/          # Kakao & Weather API Route Handlers
+ │    ├── forecast/     # [location] 기반 다이나믹 라우트 (상세 차트)
+ │    └── layout.tsx    # Root Layout & Metadata (Viewport) 설정
+ ├── components/        # HourlyChart, WeatherCard 등 공통 컴포넌트
+ └── utils/             # Fetching logic 및 데이터 포맷터
